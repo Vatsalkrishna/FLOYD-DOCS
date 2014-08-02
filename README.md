@@ -22,9 +22,9 @@ FLOYD DOCS
 11. pip install flask-bootstrap
 
 Run module run_server.py
-Status shown will be * Running on http://127.0.0.1:5000/
+Status shown will be * Running on http://127.0.0.1:5000/ ; 
 Copy the link to the browser and open http://127.0.0.1:5000/login
-For uploading files open http://127.0.0.1:5000/file-upload
-For user registration open http://127.0.0.1:5000/register
+ ;For uploading files open http://127.0.0.1:5000/file-upload
+ ;For user registration open http://127.0.0.1:5000/register
 
 
