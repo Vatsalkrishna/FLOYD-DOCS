@@ -13,7 +13,7 @@ FLOYD DOCS
 6. Activate the environment:- 
    source path/dbms/scripts/activate
 
-7. Install Flask
+7. Install Flask:- 
    pip install flask
 
 8.  Install necessary Flask extensions
