@@ -64,7 +64,7 @@ def register():
 			current_app.logger.error("Error on registration")
 
 				
-	registerForm = RegisterForm(csrf_enabled=True)
+	registerForm = RegisterForm()
 	return render_template("/auth/register.html")
 
 @auth_flask_login.route("/reauth", methods=["GET", "POST"])
