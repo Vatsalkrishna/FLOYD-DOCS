@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, g
 from flask.ext.mongoengine import MongoEngine, MongoEngineSessionInterface
 from flask.ext.login import LoginManager
 
+
 app = Flask("FlaskLoginApp")
 app.config['SECRET_KEY'] = '123456790'
 
