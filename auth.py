@@ -21,7 +21,7 @@ def login():
         email = request.form["email"]
         userObj = User()
         user = userObj.get_by_email_w_password(email)
-     	if user and flask_bcrypt.check_password_hash(user.password,request.form["password"]) and user.is_active():
+     	if user and password_hash(user.password,request.form["password"]) and user.is_active():
 			remember = request.form.get("remember", "no") == "yes"
 
 			if login_user(user, remember=remember):
