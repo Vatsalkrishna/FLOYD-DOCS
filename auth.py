@@ -26,7 +26,7 @@ def login():
 
 			if login_user(user, remember=remember):
 				flash("Logged in!")
-				return redirect('/notes/create')
+				return redirect('/file-upload')
 			else:
 				flash("unable to log you in")
 
