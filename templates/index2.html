@@ -1,28 +1,29 @@
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.0-rc2/css/bootstrap.min.css">
-<style>
-            body {
-                padding-top: 5px;
-                padding-bottom: 3px;
-            }
-</style>
+{% extends "layout.html" %}
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>		
 {% block main %}
-<div class="page-header">
-	<h1>Upload Your Doc</h1>
-</div>	
-<form method='POST' enctype='multipart/form-data'>
-        <input type='file' name='file'/>
-		
-            <input type='submit'/>
-        </form>
-		
-<footer>
-        <a>Go Viral! Read Around</a>
-</footer>		
-		
-		
+
+  <div class="row">
+    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+      
+        <legend>Upload New Doc</legend>
+      
+        <div class="form-group">
+          <label for="">FILE</label>
+		  <form method='POST' enctype='multipart/form-data'>
+          <input type="File" name="File" required="required" class="form-control" placeholder="Upload file">
+		  
+		    </form>     
+        </div>
+         
+        
+      
+        <button type="submit" class="btn btn-primary">SUBMIT</button>
+      
+    </div>
+  </div>
+  
+  
 {% endblock %}
-{% block styles %}{% endblock %}
+
 {% block scripts %}{% endblock %}
