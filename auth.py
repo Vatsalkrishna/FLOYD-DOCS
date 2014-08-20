@@ -21,7 +21,7 @@ def login():
         email = request.form["email"]
         userObj = User()
         user = userObj.get_by_email_w_password(email)
-     	if user and password_hash(user.password,request.form["password"]) and user.is_active():
+     	if user and password(user.password,request.form["password"]) and user.is_active():
 			remember = request.form.get("remember", "no") == "yes"
 
 			if login_user(user, remember=remember):
@@ -36,36 +36,20 @@ def login():
 @auth_flask_login.route("/register", methods=["GET","POST"])
 def register():
 
-	registerForm = forms.SignupForm(request.form)
-	current_app.logger.info(request.form)
+    if request.method == 'POST' and form.validate():
+        email = request.form['email']
 
-	if request.method == 'POST' and registerForm.validate() == False:
-		current_app.logger.info(registerForm.errors)
-		return "registration error"
+	password = request.form['password']
 
-	elif request.method == 'POST' and registerForm.validate():
-		email = request.form['email']
+	user = User(email,password)
+	print user
+        form.populate_obj(user)
+        user.save()
 
-		password_hash = request.form['password']
+        login.login_user(user)
+        return redirect(url_for('login'))
 
-		user = User(email,password_hash)
-		print user
-
-		try:
-			user.save()
-			if login_user(user, remember="no"):
-				flash("Logged in!")
-				return redirect('/')
-			else:
-				flash("unable to log you in")
-
-		except:
-			flash("unable to register with that email address")
-			current_app.logger.error("Error on registration")
-
-				
-	registerForm = RegisterForm()
-	return render_template("/auth/register.html")
+    return render_template("/auth/register.html")
 
 @auth_flask_login.route("/reauth", methods=["GET", "POST"])
 @login_required
